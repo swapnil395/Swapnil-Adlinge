@@ -1,0 +1,61 @@
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+}
+
+/* Base container */
+#background {
+  position: relative;
+  min-height: 100vh;
+  transition: background 1s ease-in-out;
+}
+
+/* Shared animation */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.bg-animated {
+  background-size: 200% 200%;
+  animation: gradientMove 15s ease infinite;
+}
+
+/* Weather themes (pure CSS gradients) */
+.bg-clear {
+  background: linear-gradient(-45deg, #fbc2eb, #a6c1ee, #ffd194, #70e1f5);
+}
+
+.bg-clouds {
+  background: linear-gradient(-45deg, #bdc3c7, #2c3e50, #ecf0f1, #95a5a6);
+}
+
+.bg-rain {
+  background: linear-gradient(-45deg, #667db6, #0082c8, #0082c8, #667db6);
+}
+
+.bg-snow {
+  background: linear-gradient(-45deg, #e0eafc, #cfdef3, #ffffff, #dfe9f3);
+}
+
+.bg-thunder {
+  background: linear-gradient(-45deg, #141E30, #243B55, #485563, #29323c);
+}
+
+.bg-mist {
+  background: linear-gradient(-45deg, #dae2f8, #d6a4a4, #f1f2b5, #135058);
+}
+
+/* Optional soft overlay for readability */
+#background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.25);
+  z-index: 0;
+}
+#background > * {
+  position: relative;
+  z-index: 1;
+}
